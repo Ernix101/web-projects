@@ -146,9 +146,7 @@ print(room.items[0].quantity)
 def process_health_data(items):
     print("Processing health data summary:")
     for item in items:
-        print("➡️" + " " + item.get_summary())
-
-
+        print("➡️" + "  " + item.get_summary())
 # Mixed list of all stuff
 mixed_things = [Alice, room, kenny]
 
