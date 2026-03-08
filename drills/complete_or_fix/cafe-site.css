@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    background: #f6f1ea;
+    color: #2b2118;
+}
+
+nav ul {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 900px;
+    margin: -40px auto 40px;
+    padding: 0 16px;
+}
+
+
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+}
+
+#menu-toggle {
+    font-size: 1.1rem;
+    padding: 1.1rem;
+    background-color: #2b2118;
+    color: #f6f1ea;
+    border-radius: 20px;
+}
+
+
+section {
+    padding: 24px 16px;
+}
+
+.hero {
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("cafe-hero2.png") center/cover no-repeat;
+    color: white;
+    padding: 24px 16px 80px;
+}
+
+.title {
+    color: rgb(1, 1, 61);
+}
+
+nav {
+    transform: translateX(-100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+
+}
+
+.open {
+    display: block;
+    transform: translateX(0);
+}
+
+@media(min-width: 768px) {
+    nav {
+        display: block;
+    }
+    nav.open {
+        transform: translateX(0);
+        position: static;
+        height: auto;
+    }
+    #nav-links {
+        display: flex;
+    }
+    #menu-toggle {
+        display: none;
+    }
+}
