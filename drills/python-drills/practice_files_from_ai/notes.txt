@@ -1,0 +1,7 @@
+Here are some notes.
+
+Python is fun.
+Data analysis starts with files.
+
+  
+End of file.

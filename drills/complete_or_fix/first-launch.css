@@ -35,6 +35,23 @@ body {
     margin: 0;
 }
 
+#nav-links {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    justify-content: flex-end;
+    background-color: burlywood;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+#content {
+    margin-top: 20px;
+}
+#content h2 {
+    margin-top: 20px;
+}
+
 .navBar li {
     margin-right: 20px;
 }

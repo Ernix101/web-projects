@@ -5,7 +5,7 @@ Update any section anytime.
 
 ## Identity
 - Name: Ernest
-- Level: Beginner in HTML/CSS/JS
+- Level: Beginner in HTML/CSS/JS. Student taking degree in health administration, learning data and IT side on the side.
 - Goal: Build strong fundamentals, not just finish tasks fast
 
 ## Coaching Style Preferences

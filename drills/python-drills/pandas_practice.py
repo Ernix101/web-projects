@@ -18,7 +18,7 @@ new_df = df[["Name", "Sex", "Age", "Survived"]]             # Selected columns o
 # print(df.iloc[10:16, 2:6])
 
 
-# print(df[df["Survived"] == 1].shape[0])         # How many survived add shape[0]     343
+# print(df[df["Survived"] == 1].shape[0])         # How many survived. add shape[0]     343
 # print(df[(df["Survived"] == 1) & (df["Sex"] == "female")].shape[0])         # How many females survived add shape[0]  233 survived
 
 

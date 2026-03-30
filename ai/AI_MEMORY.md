@@ -43,3 +43,8 @@
 - Task completed: Implemented working JS nav toggle with `classList.toggle("open")` and synchronized `aria-expanded` state.
 - What was learned: The return value of `classList.toggle()` can drive accessibility attributes directly and avoid duplicate state bugs.
 - Follow-up focus: Add responsive breakpoint behavior so nav stays visible on desktop and toggles on mobile only.
+
+- Date: 2026-03-29
+- Task completed: Finished pandas practice drill with totals, groupby summaries, sorting, and highest-revenue item.
+- What was learned: Grouping by category and summarizing with sum() plus idxmax() to find top values.
+- Follow-up focus: Practice sort_values() on full DataFrames vs grouped Series to understand output shapes.
