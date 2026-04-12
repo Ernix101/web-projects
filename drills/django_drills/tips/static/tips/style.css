@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color: #2c7a4b;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #2c7a4b;
+}
+
+h3 {
+    color: #1a4731;
+}
+
+hr {
+    border: 1px solid #2c7a4b;
+}

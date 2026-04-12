@@ -1,19 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+from .models import GymTip
 
 # Create your views here.
 
 # Function based view
 def home(request):
-    return HttpResponse("<h1>Looking to get stronger? You're in the right place<h1>")
+    tips = GymTip.objects.all()
+    return render(request, 'tips/home.html', {'tips': tips})
 
 # Function based view
 def about(request):
-    return HttpResponse("<h1>About Us, what we are!<h1>")
+    return render(request, 'tips/about.html')
 
 # Class based view
 class GymTipView(View):
     def get(self, request):
-        return HttpResponse("<h1>Tip of the day: Keep your core engaged during ab and leg exercises💪🏿<h1>")
+        return render(request, 'tips/tips.html')
     

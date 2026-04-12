@@ -1,18 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
+from .models import HealthTip
+from .forms import HealthTipForm
 
 # Create your views here.
 
 # Function based view
 def home(request):
-    return HttpResponse("<h1> Welcome to the Health tip Board<h1>")
+    if request.method == 'POST':
+        form = HealthTipForm(request.POST)
+        
+        if form.is_valid():
+            HealthTip.objects.create(
+                title=form.cleaned_data['title'],
+                content=form.cleaned_data['content']
+            )
+            return redirect('/')
+    else:
+        form = HealthTipForm()
+
+    tips = HealthTip.objects.all()
+    return render(request, 'tips/home.html', {'tips': tips, 'form': form})
 
 # Function based view
 def about(request):
-    return HttpResponse("<h1>About this app<h1>")
+    return render(request, 'tips/about.html')
 
 # Class based view
 class HealthTipView(View):
     def get(self, request):
-        return HttpResponse("<h1>Health tip of the day: Drink more water💧")
+        return render(request, 'tips/tip.html')

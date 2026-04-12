@@ -1,0 +1,16 @@
+{% extends 'tips/base.html' %}
+
+{% block title %}Home{% endblock %}    
+    
+{% block content %}
+    <h1>Welcome to the Gym tips board!</h1>
+    <p>Looking to become strong, healthy or attractive? You're in the right place</p>
+    <hr>
+
+    {% for tip in tips %}
+        <h2>{{ tip.title }}</h2>
+        <p>{{ tip.description }}</p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
