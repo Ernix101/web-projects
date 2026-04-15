@@ -37,6 +37,14 @@ df['duration(seconds)'] = pd.to_numeric(df['duration(seconds)'], errors='coerce'
 mean_secs = df['duration(seconds)'].mean()
 above_mean = df[df['duration(seconds)'] > mean_secs]
 
-print(f"Mean: {mean_secs:.2f}")
-print(above_mean[['city', 'state', 'shape', 'duration(seconds)']])
+# print(f"Mean: {mean_secs:.2f}")
+# print(above_mean[['city', 'state', 'shape', 'duration(seconds)']])
+
+# print(df.loc[10:25, ['city', 'shape']])
+# print(df.iloc[-5:, :3])        # last 5 rows and first 3 columns
+
+median_time_secs = df['duration(seconds)'].median(numeric_only=True)
+df.fillna({'duration(seconds)': f'{median_time_secs}'})
+
+print(df[['datetime', 'city', 'duration(seconds)']])
 

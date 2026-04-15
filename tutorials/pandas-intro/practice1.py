@@ -1,5 +1,5 @@
 import pandas as pd
-import janitor            # <---we don't need this yet
+# import janitor            # <---we don't need this yet
 
 patients = {
     "patient_id": ["P01", "P02", "P03", "P04", "P05", "P06", "P07", "P01", "P09", "P10", "P11", "P12"],
