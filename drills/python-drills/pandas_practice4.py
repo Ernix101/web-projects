@@ -46,5 +46,35 @@ above_mean = df[df['duration(seconds)'] > mean_secs]
 median_time_secs = df['duration(seconds)'].median(numeric_only=True)
 df.fillna({'duration(seconds)': f'{median_time_secs}'})
 
-print(df[['datetime', 'city', 'duration(seconds)']])
+# print(df[['datetime', 'city', 'duration(seconds)']])
 
+df = df.rename(columns={
+    'duration(seconds)': 'seconds',
+})
+
+# print(df['seconds'])
+df['seconds'] = df['seconds'].astype(float)
+# print(df['seconds'].dtypes)
+
+df = df.drop_duplicates()
+df = df.fillna({'seconds': 'None'})
+# print(df['seconds'])
+
+df['latitude'] = pd.to_numeric(df['latitude'], errors='coerce')
+df['multiplied_location'] = df['latitude'] * df['longitude']
+# print(df['multiplied_location'])
+
+# print(f"{df['longitude'].dtype} is for longitude and {df['latitude'].dtype} is for latitude")
+
+df['seconds'] = pd.to_numeric(df['seconds'], errors='coerce')
+# print(df['seconds'].dtype)
+def time_seen(time):
+    if time >= 3000:
+        return "Very Long"
+    elif time <= 3000 >= 2000:
+        return "Long"
+    else:
+        return "Short time"
+    
+df['How_long'] = df['seconds'].apply(time_seen)
+print(df['How_long'])

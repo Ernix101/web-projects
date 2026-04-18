@@ -12,10 +12,11 @@ def home(request):
         form = HealthTipForm(request.POST)
         
         if form.is_valid():
-            HealthTip.objects.create(
-                title=form.cleaned_data['title'],
-                content=form.cleaned_data['content']
-            )
+            # HealthTip.objects.create(
+            #     title=form.cleaned_data['title'],
+            #     content=form.cleaned_data['content']          <-- We're replacing this part to fit the modelform
+            # )
+            form.save()                                 # <-- Added form saving to replace the create() block
             return redirect('/')
     else:
         form = HealthTipForm()
@@ -31,3 +32,4 @@ def about(request):
 class HealthTipView(View):
     def get(self, request):
         return render(request, 'tips/tip.html')
+    

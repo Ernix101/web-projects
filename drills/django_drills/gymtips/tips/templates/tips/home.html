@@ -7,6 +7,14 @@
     <p>Looking to become strong, healthy or attractive? You're in the right place</p>
     <hr>
 
+    <h2>Add a new tip</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add tip</button>
+
+    </form>
+
     {% for tip in tips %}
         <h2>{{ tip.title }}</h2>
         <p>{{ tip.description }}</p>
