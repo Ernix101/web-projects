@@ -13,10 +13,11 @@ def home(request):
         form = GymTipForm(request.POST)
 
         if form.is_valid():
-            GymTip.objects.create(
-                title = form.cleaned_data['title'],
-                description = form.cleaned_data['description']
-            )
+            # GymTip.objects.create(
+            #     title = form.cleaned_data['title'],
+            #     description = form.cleaned_data['description']
+            # )
+            form.save()
             return redirect('/')
     else:
         form = GymTipForm()

@@ -69,12 +69,38 @@ df['multiplied_location'] = df['latitude'] * df['longitude']
 df['seconds'] = pd.to_numeric(df['seconds'], errors='coerce')
 # print(df['seconds'].dtype)
 def time_seen(time):
-    if time >= 3000:
+    if time >= 4000:
         return "Very Long"
-    elif time <= 3000 >= 2000:
+    elif time <= 4000 >= 2000:
         return "Long"
     else:
         return "Short time"
     
 df['How_long'] = df['seconds'].apply(time_seen)
-print(df['How_long'])
+# print(df['How_long'])
+
+max_of_seconds = df.groupby('shape')['seconds'].max()
+count_of_seconds = df.groupby('shape')['seconds'].count()
+# print(mean_of_seconds.sort_values(ascending=False))
+# print()
+# print(max_of_seconds)
+# print()
+# print(count_of_seconds)
+df1 = pd.DataFrame({
+    'city': ['Nairobi', 'Mombasa', 'Kisumu'],
+    'cases':[200, 150, 80]
+})
+
+df2 = pd.DataFrame({
+    'city': ['Nairobi', 'Mombasa', 'Eldoret'],
+    'population': [4000000, 1200000, 500000]
+})
+
+inner = pd.merge(df1, df2, on='city')     # Only matching cities
+left = pd.merge(df1, df2, on='city', how='left')   # All of df1, match where possible
+
+df['date posted'] = pd.to_datetime(df['date posted'])
+df = df.set_index('date posted')
+
+monthly = df['seconds'].resample('ME').sum()
+print(monthly)

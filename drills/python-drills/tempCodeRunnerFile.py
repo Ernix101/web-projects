@@ -1,2 +1,2 @@
 
-# print(f"{df['longitude'].dtype} is for longitude and {df['latitude'].dtype} is for latitude")
+# mean_of_seconds = df.groupby('shape')['seconds'].mean()

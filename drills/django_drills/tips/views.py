@@ -21,7 +21,7 @@ def home(request):
     else:
         form = HealthTipForm()
 
-    tips = HealthTip.objects.all()
+    tips = HealthTip.objects.all().order_by('-created_at')  # <-- shows newest first
     return render(request, 'tips/home.html', {'tips': tips, 'form': form})
 
 # Function based view
