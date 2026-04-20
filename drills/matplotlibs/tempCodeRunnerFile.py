@@ -1,0 +1,1 @@
+plt.title("Time spent with girls (hrs/week)", color="red")

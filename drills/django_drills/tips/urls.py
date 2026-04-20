@@ -6,3 +6,4 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('tip/', views.HealthTipView.as_view(), name='tip'),
 ]
+
