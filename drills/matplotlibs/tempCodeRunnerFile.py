@@ -1,1 +1,5 @@
-plt.title("Time spent with girls (hrs/week)", color="red")
+
+ax1[1, 1].set_title("mood distribution")
+ax1[1, 1].set_facecolor('magenta')
+
+fig1.set_facecolor('black')

@@ -71,19 +71,72 @@ increased_years = np.array([2, 3, 6, 7, 8, 9, 10])
 strength = np.array([30, 40, 55, 65, 70, 78, 85])
 mood = np.array([50, 55, 80, 90, 97, 100, 110])
 
-fig, ax = plt.subplots(2, 2, figsize=(10, 5))           # <-- The figsize increases the size of dimensions
+fig1, ax1 = plt.subplots(2, 2, figsize=(10, 5))           # <-- The figsize increases the size of dimensions
 
-ax[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
-ax[0, 0].set_title("exercise days Vs weight reduction")
+ax1[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
+ax1[0, 0].set_title("exercise days Vs weight reduction")
+ax1[0, 0].set_facecolor('grey')         # <-- This sets the color of the face
 
-ax[0, 1].bar(exercise_days, increased_years, color='green')
-ax[0, 1].set_title("exercise days Vs increased years")
+ax1[0, 1].bar(exercise_days, increased_years, color='green')
+ax1[0, 1].set_title("exercise days Vs increased years")
+ax1[0, 1].set_facecolor('antiquewhite')
 
-ax[1, 0].scatter(exercise_days, strength)
-ax[1, 0].set_title("exercise days Vs strength")
 
-ax[1, 1].hist(mood, bins=10, color='aquamarine', edgecolor='black')
-ax[1, 1].set_title("mood distribution")
+ax1[1, 0].scatter(exercise_days, strength)
+ax1[1, 0].set_title("exercise days Vs strength")
+ax1[1, 0].set_facecolor('aquamarine')
 
+ax1[1, 1].hist(mood, bins=10, color='cyan', edgecolor='black')
+ax1[1, 1].set_title("mood distribution")
+ax1[1, 1].set_facecolor('magenta')
+
+fig1.set_facecolor('lightblue')
 plt.tight_layout()      # <-- Fixes spacing between layouts
+
+
+
+# 6. Plot 2 separate lines on the same chart
+fig2, ax2 = plt.subplots()          #   <-- New single axis, not 2x2
+
+ax2.plot(exercise_days, strength, color='blue', linestyle='--', label='Strength')
+ax2.plot(exercise_days, mood, color='green', linestyle='-', label='Mood')
+ax2.set_facecolor('yellow')
+
+# Find the peak of the mood
+peak_x = exercise_days[np.argmax(mood)]
+peak_y = mood[np.argmax(mood)]
+
+ax2.annotate('Peak mood',
+            xy=(peak_x, peak_y),            # <-- The actual point
+            xytext=(peak_x-2, peak_y-1),       # <-- Where the text sits
+            arrowprops=dict(arrowstyle='->'))
+
+ax2.legend()
+ax2.set_title("Strength Vs Mood")
+plt.grid(axis='x', color='black', linestyle='-.')
 plt.show()
+
+
+
+
+
+# # An example from google on how to plot multiple lines together
+# x = np.arange(0, 10, 1)
+# y1 = [2, 3, 5, 8, 4, 3, 2, 1, 0, 1]
+# y2 = [1, 2, 4, 6, 10, 8, 5, 3, 2, 2]
+
+# # 1. Plot the 2 separate lines
+# plt.plot(x, y1, label='line 1', color='blue')
+# plt.plot(x, y2, label='line 2', color='green')
+
+# # 2. Annotate the highest point (Using line 2 as the example)
+# ymax = max(y2)
+# xmax = x[np.argmax(y2)]
+
+# plt.annotate(f'Max : {ymax}',
+#              xy=(xmax, ymax),
+#              xytext=(xmax + 1, ymax + 0.5),
+#              arrowprops=dict(facecolor='black', shrink=0.05))
+
+# plt.legend()
+# plt.show()
