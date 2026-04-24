@@ -5,8 +5,11 @@ from .models import HealthTip
 from .forms import HealthTipForm
 
 from django.contrib.auth.decorators import login_required   # <-- Let's make it a page where a user has to have logged in
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 # Create your views here.
+
 
 # Function based view
 @login_required             # <-- Now a decorator for each view (function-based)
@@ -19,7 +22,7 @@ def home(request):
             #     title=form.cleaned_data['title'],
             #     content=form.cleaned_data['content']          <-- replacing this part to fit the modelform
             # )
-            form.save()                                 # <-- Added form saving to replace the create() block
+            form.save()                               # <-- Added form saving to replace the create() block
             return redirect('/')
     else:
         form = HealthTipForm()
@@ -37,3 +40,14 @@ class HealthTipView(View):
     def get(self, request):
         return render(request, 'tips/tip.html')
     
+# A Way for users apart from the main superuser to register
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
