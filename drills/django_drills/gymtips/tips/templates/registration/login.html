@@ -1,0 +1,14 @@
+{% extends "tips\base.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+
+<h2>Login for new member</h2>
+<form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+</form>
+
+
+{% endblock content %}

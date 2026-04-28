@@ -4,10 +4,14 @@ from django.views import View
 from .models import GymTip
 from .forms import GymTipForm
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 # Create your views here.
 
 # Function based view
+@login_required
 def home(request):
     if request.method == 'POST':
         form = GymTipForm(request.POST)
@@ -26,6 +30,7 @@ def home(request):
     return render(request, 'tips/home.html', {'tips': tips, 'form': form})
 
 # Function based view
+@login_required
 def about(request):
     return render(request, 'tips/about.html')
 
@@ -33,3 +38,15 @@ def about(request):
 class GymTipView(View):
     def get(self, request):
         return render(request, 'tips/tips.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})

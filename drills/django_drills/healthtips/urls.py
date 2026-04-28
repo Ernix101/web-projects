@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# We're adding django user authentication.🔐
+# Adding django user authentication.🔐
 from django.contrib import admin
 from django.urls import path, include
 
