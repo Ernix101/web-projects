@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse            # <-- stopped using it in favor of render
 from django.views import View
 from .models import GymTip
 from .forms import GymTipForm

@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 years = np.array([2021, 2022, 2023, 2024, 2025])
 sales = np.array([1000, 2000, 2500, 2700, 2800])
@@ -64,58 +65,57 @@ airtel_bundles = np.array([30, 50, 60, 75, 150, 300, 550, 750, 1000, 2000])
 
 # 5. 2x2 grid of subplots - line, bar, scatter, histogram
 # First, an example of a 2x2 subplot.
-exercise_days = np.array([14, 15, 16, 17, 18, 19, 20])
-weight_reduction = np.array([1, 2, 3, 4, 5, 7, 9])
+# exercise_days = np.array([14, 15, 16, 17, 18, 19, 20])
+# weight_reduction = np.array([1, 2, 3, 4, 5, 7, 9])
 
-increased_years = np.array([2, 3, 6, 7, 8, 9, 10])
-strength = np.array([30, 40, 55, 65, 70, 78, 85])
-mood = np.array([50, 55, 80, 90, 97, 100, 110])
+# increased_years = np.array([2, 3, 6, 7, 8, 9, 10])
+# strength = np.array([30, 40, 55, 65, 70, 78, 85])
+# mood = np.array([50, 55, 80, 90, 97, 100, 110])
 
-fig1, ax1 = plt.subplots(2, 2, figsize=(10, 5))           # <-- The figsize increases the size of dimensions
+# fig1, ax1 = plt.subplots(2, 2, figsize=(10, 5))           # <-- The figsize increases the size of dimensions
 
-ax1[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
-ax1[0, 0].set_title("exercise days Vs weight reduction")
-ax1[0, 0].set_facecolor('grey')         # <-- This sets the color of the face
+# ax1[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
+# ax1[0, 0].set_title("exercise days Vs weight reduction")
+# ax1[0, 0].set_facecolor('grey')         # <-- This sets the color of the face
 
-ax1[0, 1].bar(exercise_days, increased_years, color='green')
-ax1[0, 1].set_title("exercise days Vs increased years")
-ax1[0, 1].set_facecolor('antiquewhite')
-
-
-ax1[1, 0].scatter(exercise_days, strength)
-ax1[1, 0].set_title("exercise days Vs strength")
-ax1[1, 0].set_facecolor('aquamarine')
-
-ax1[1, 1].hist(mood, bins=10, color='cyan', edgecolor='black')
-ax1[1, 1].set_title("mood distribution")
-ax1[1, 1].set_facecolor('magenta')
-
-fig1.set_facecolor('lightblue')
-plt.tight_layout()      # <-- Fixes spacing between layouts
+# ax1[0, 1].barh(exercise_days, increased_years, color='green')
+# ax1[0, 1].set_title("exercise days Vs increased years")
+# ax1[0, 1].set_facecolor('antiquewhite')
 
 
+# ax1[1, 0].scatter(exercise_days, strength)
+# ax1[1, 0].set_title("exercise days Vs strength")
+# ax1[1, 0].set_facecolor('aquamarine')
 
-# 6. Plot 2 separate lines on the same chart
-fig2, ax2 = plt.subplots()          #   <-- New single axis, not 2x2
+# ax1[1, 1].hist(mood, bins=10, color='cyan', edgecolor='black')
+# ax1[1, 1].set_title("mood distribution")
+# ax1[1, 1].set_facecolor('magenta')
 
-ax2.plot(exercise_days, strength, color='blue', linestyle='--', label='Strength')
-ax2.plot(exercise_days, mood, color='green', linestyle='-', label='Mood')
-ax2.set_facecolor('yellow')
+# fig1.set_facecolor('lightblue')
+# plt.tight_layout()      # <-- Fixes spacing between layouts
 
-# Find the peak of the mood
-peak_x = exercise_days[np.argmax(mood)]
-peak_y = mood[np.argmax(mood)]
 
-ax2.annotate('Peak mood',
-            xy=(peak_x, peak_y),            # <-- The actual point
-            xytext=(peak_x-2, peak_y-1),       # <-- Where the text sits
-            arrowprops=dict(arrowstyle='->'))
 
-ax2.legend()
-ax2.set_title("Strength Vs Mood")
-plt.grid(axis='x', color='black', linestyle='-.')
-plt.show()
+# # 6. Plot 2 separate lines on the same chart
+# fig2, ax2 = plt.subplots()          #   <-- New single axis, not 2x2
 
+# ax2.plot(exercise_days, strength, color='blue', linestyle='--', label='Strength')
+# ax2.plot(exercise_days, mood, color='green', linestyle='-', label='Mood')
+# ax2.set_facecolor('yellow')
+
+# # Find the peak of the mood
+# peak_x = exercise_days[np.argmax(mood)]
+# peak_y = mood[np.argmax(mood)]
+
+# ax2.annotate('Peak mood',
+#             xy=(peak_x, peak_y),            # <-- The actual point
+#             xytext=(peak_x-2, peak_y-1),       # <-- Where the text sits
+#             arrowprops=dict(arrowstyle='->'))
+
+# ax2.legend()
+# ax2.set_title("Strength Vs Mood")
+# plt.grid(axis='x', color='black', linestyle='-.')
+# plt.show()
 
 
 
@@ -141,3 +141,35 @@ plt.show()
 
 # plt.legend()
 # plt.show()
+
+
+
+# 10. A plot of 3 facilities over a year
+
+facility_a = np.random.randint(100, 500, 12)
+facility_b = np.random.randint(100, 500, 12)
+facility_c = np.random.randint(100, 500, 12)
+
+months = np.arange(1, 13)
+
+plt.plot(months, facility_a, color='blue', label='facility A')
+plt.plot(months, facility_b, linestyle='dashdot', color='orange', label='facility B')
+plt.plot(months, facility_c, linestyle='dotted', color='green', label='facility C')
+plt.xticks(months)
+# plt.legend()
+
+plt.title("Facility Performance in 2018")
+plt.xlabel("months")
+plt.ylabel("facility visits")
+# plt.show()
+
+patients = ['John', 'Erick', 'Maya', 'David', 'Elena']
+ages = [21, 23, 27, 37, 42]
+visits = [50, 60, 33, 70, 40]
+both_info = zip(patients, ages, visits)
+
+patients_df = pd.DataFrame(both_info, columns=['Names', 'Age', 'Visits'])
+
+patients_df.plot(kind='barh', color=['red','blue'])
+
+plt.show()

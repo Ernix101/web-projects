@@ -17,12 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Adding user authentication here for login.html 🔐
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tips.urls')),
-]
-
-# Adding user authentication here for login.html 🔐
-urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 ]

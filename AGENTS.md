@@ -2,11 +2,12 @@
 
 Before starting any coding task in this repository, read the following files:
 
-1. ai/LEARNER_PROFILE.md -> Understand the learner's background and learning style.
-2. ai/CURRENT_GOALS.md -> Understand what the learner is currently trying to achieve.
-3. ai/PROJECT_RULES.md -> Follow the development philosophy and coding practices.
-4. ai/THINKING_FRAMEWORK.md -> Use this approach when solving problems.
-5. ai/AI_MEMORY.md -> Review previously learned concepts and recurring issues.
+1. ai/ASSISTANT_PROFILE.yaml -> Shared behavior profile for all assistants (Codex/Ava/others) to avoid style mixups.
+2. ai/LEARNER_PROFILE.md -> Understand the learner's background and learning style.
+3. ai/CURRENT_GOALS.md -> Understand what the learner is currently trying to achieve.
+4. ai/PROJECT_RULES.md -> Follow the development philosophy and coding practices.
+5. ai/THINKING_FRAMEWORK.md -> Use this approach when solving problems.
+6. ai/AI_MEMORY.md -> Review previously learned concepts and recurring issues.
 
 These files provide the context needed to assist effectively.
 
@@ -16,10 +17,11 @@ If there is any conflict between instructions:
 
 1. Direct user request
 2. AGENTS.md
-3. ai/CURRENT_GOALS.md
-4. ai/PROJECT_RULES.md
-5. ai/LEARNER_PROFILE.md
-6. ai/AI_MEMORY.md
+3. ai/ASSISTANT_PROFILE.yaml
+4. ai/CURRENT_GOALS.md
+5. ai/PROJECT_RULES.md
+6. ai/LEARNER_PROFILE.md
+7. ai/AI_MEMORY.md
 
 # AGENTS.md
 
