@@ -4,3 +4,5 @@
 *.gif
 *.mp4
 node_modules/
+venv/
+env/
