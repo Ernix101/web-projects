@@ -10,7 +10,7 @@ from django.contrib.auth import login
 
 # Create your views here.
 
-# Function based view
+# * This is a Function based view
 @login_required
 def home(request):
     if request.method == 'POST':
@@ -29,7 +29,7 @@ def home(request):
     tips = GymTip.objects.all()
     return render(request, 'tips/home.html', {'tips': tips, 'form': form})
 
-# Function based view
+# * This is a Function based view
 @login_required
 def about(request):
     return render(request, 'tips/about.html')
