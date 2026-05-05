@@ -74,43 +74,52 @@ airtel_bundles = np.array([30, 50, 60, 75, 150, 300, 550, 750, 1000, 2000])
 
 # fig1, ax1 = plt.subplots(2, 2, figsize=(10, 5))           # <-- The figsize increases the size of dimensions
 
-# ax1[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
+# *ax1[0, 0].plot(exercise_days, weight_reduction, color='blue', linestyle='dashdot')
 # ax1[0, 0].set_title("exercise days Vs weight reduction")
 # ax1[0, 0].set_facecolor('grey')         # <-- This sets the color of the face
 
-# ax1[0, 1].barh(exercise_days, increased_years, color='green')
+# *ax1[0, 1].barh(exercise_days, increased_years, color='green')
 # ax1[0, 1].set_title("exercise days Vs increased years")
 # ax1[0, 1].set_facecolor('antiquewhite')
 
 
-# ax1[1, 0].scatter(exercise_days, strength)
+#*ax1[1, 0].scatter(exercise_days, strength)
 # ax1[1, 0].set_title("exercise days Vs strength")
 # ax1[1, 0].set_facecolor('aquamarine')
 
-# ax1[1, 1].hist(mood, bins=10, color='cyan', edgecolor='black')
+# *ax1[1, 1].hist(mood, bins=10, color='cyan', edgecolor='black')
 # ax1[1, 1].set_title("mood distribution")
 # ax1[1, 1].set_facecolor('magenta')
 
 # fig1.set_facecolor('lightblue')
-# plt.tight_layout()      # <-- Fixes spacing between layouts
+# plt.tight_layout()      #* <-- Fixes spacing between layouts
 
 
 
 # # 6. Plot 2 separate lines on the same chart
-# fig2, ax2 = plt.subplots()          #   <-- New single axis, not 2x2
+# fig2, ax2 = plt.subplots()          #*   <-- New single axis, not 2x2
 
 # ax2.plot(exercise_days, strength, color='blue', linestyle='--', label='Strength')
 # ax2.plot(exercise_days, mood, color='green', linestyle='-', label='Mood')
 # ax2.set_facecolor('yellow')
 
 # # Find the peak of the mood
-# peak_x = exercise_days[np.argmax(mood)]
-# peak_y = mood[np.argmax(mood)]
+# peakmood_x = exercise_days[np.argmax(mood)]
+# peakmood_y = mood[np.argmax(mood)]
 
 # ax2.annotate('Peak mood',
-#             xy=(peak_x, peak_y),            # <-- The actual point
-#             xytext=(peak_x-2, peak_y-1),       # <-- Where the text sits
+#             xy=(peakmood_x, peakmood_y),            #* <-- The actual point
+#             xytext=(peakmood_x-2, peakmood_y-1),       #* <-- Where the text sits
 #             arrowprops=dict(arrowstyle='->'))
+
+# # Find the peak of the strength
+# peakstrength_x = exercise_days[np.argmax(strength)]
+# peakstrength_y = strength[np.argmax(strength)]
+
+# ax2.annotate('Peak strength',
+#               xy=(peakstrength_x, peakstrength_y),
+#               xytext=(peakstrength_x-2, peakstrength_y-1),
+#               arrowprops=dict(arrowstyle='-->'))
 
 # ax2.legend()
 # ax2.set_title("Strength Vs Mood")
