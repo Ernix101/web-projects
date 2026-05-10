@@ -29,3 +29,21 @@ h3 {
 hr {
     border: 1px solid #2c7a4b;
 }
+
+#Modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+#innerModal {
+    background: white;
+    margin: 200px auto;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+}

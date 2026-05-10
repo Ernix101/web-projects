@@ -8,6 +8,7 @@
 
     <title>{% block title %} Health Tip Board {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'tips/style.css' %}">
+    <script src="{% static 'tips/main.js' %}" defer></script>
 </head>
 <body>
     <nav>
@@ -18,6 +19,15 @@
     <hr>
     {% block content %}
     {% endblock content %}
+
+    <!-- Modal -->
+    <div id="Modal">
+        <div id="innerModal">
+            <p>Are you sure you want to delete this tip?</p>
+            <button id="confirmDelete">Yes, Delete</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
 </body>
 </html>
 

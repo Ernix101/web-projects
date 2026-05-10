@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views import View
 from .models import HealthTip
@@ -52,3 +52,12 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+# ! Now we add a delete function for any health tip we want gone
+
+def delete_tip(request, tip_id):
+    tip = get_object_or_404(HealthTip, id=tip_id)
+    if request.method == 'POST':
+        tip.delete()
+        return redirect('/')
+    return redirect('/')

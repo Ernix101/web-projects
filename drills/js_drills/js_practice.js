@@ -22,4 +22,41 @@ function addSkill(student, newSkill) {
     return student.skills
 }
 
-console.log(addSkill(student1, anotherSkill))
+// console.log(addSkill(student1, anotherSkill))
+
+const upperSkills = student1.skills.map(skill => skill.toUpperCase())
+// console.log(upperSkills)
+
+
+sixCharactersOrMore = student1.skills.filter(skill => skill.length > 6)
+// console.log(sixCharactersOrMore)
+
+function listItems(array) {
+    const ul = document.getElementById('skillList')
+    ul.innerHTML = ''
+    array.forEach(item => {
+        const li = document.createElement('li')
+        li.textContent = item
+        ul.appendChild(li)
+    });
+
+    // document.body.appendChild(ul)
+}
+// listItems(student1.skills);
+
+
+// Adding an input to create and push new skills
+const skillForm = document.getElementById("skillForm")
+const skillInput = document.getElementById("skillInput")
+
+
+
+skillForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const enteredSkill = skillInput.value
+    if (enteredSkill.trim() === '') return
+    addSkill(student1, enteredSkill);
+    document.querySelector('ul').innerHTML = ''
+    listItems(student1.skills);
+});
