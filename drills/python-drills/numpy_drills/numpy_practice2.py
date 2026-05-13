@@ -27,11 +27,15 @@ median = np.median(patient_ages)
 min = np.min(patient_ages)
 max = np.max(patient_ages)
 
-print(f"Summary of ages-> Mean:{mean}, Median:{median}, min:{min}, max{max}")
+# print(f"Summary of ages-> Mean: {mean}, Median: {median}, min: {min}, max: {max}")
 
 
 # 2. Daily patient visits per day for 4 weeks
 record = np.random.randint(10, 60, size=(4, 7))
 busiest_day_count = np.max(record)
 day_number = np.argmax(record)
-print(f"The busiest day was DAY NO: {day_number} with a total of {busiest_day_count} visits")
+average_visits_per_week = np.mean(record, axis=0)
+# print(f"The busiest day was DAY NO: {day_number} with a total of {busiest_day_count} visits")
+
+print(average_visits_per_week)
+

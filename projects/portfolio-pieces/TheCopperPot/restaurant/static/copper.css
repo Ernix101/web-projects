@@ -1,0 +1,42 @@
+:root {
+/* CSS HEX */
+--olive: #8b793fff;
+--alabaster-grey: #d1dcdfff;
+--khaki-beige: #c1a488ff;
+--pale-oak: #cbc0afff;
+--walnut: #6c3e17ff;
+
+/* CSS HSL */
+--olive: hsla(46, 38%, 40%, 1);
+--alabaster-grey: hsla(193, 18%, 85%, 1);
+--khaki-beige: hsla(29, 31%, 65%, 1);
+--pale-oak: hsla(36, 21%, 74%, 1);
+--walnut: hsla(28, 65%, 26%, 1);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    padding: 1rem 2rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 20px;
+}
+
+.hero {
+    background-image: url('/TheCopperPot/pics/restaurant-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    
+
+    /* center the content inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--alabaster-grey);
+    text-align: center;
+}
