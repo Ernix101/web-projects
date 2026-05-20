@@ -123,5 +123,19 @@ facilities = np.array(['HF_01','HF_02','HF_03','HF_04','HF_05','HF_06','HF_07','
 reporting_rates = np.random.randint(30, 100, size=(12, 6))
 
 always_above = np.all(reporting_rates >= 80, axis=1)
-print(facilities[always_above])
-print(np.sum(always_above))
+# print(facilities[always_above])
+# print(reporting_rates[reporting_rates >= 80])
+
+# print(np.sum(always_above))
+
+ids = np.array(['P01', 'P02', 'P03', 'P04', 'P05', 'P06', 'P07', 'P08', 'P09', 'P10'])
+ages = np.array([27, 22, 30, 45, 21, 55, 33, 38, 77, 80])
+severity_scores = np.array([5, 7, 8, 2, 8, 4, 3, 5, 6, 9])
+
+# info = np.array([ids, ages, severity_scores])  # combining is Not was is required
+sorted_indices = np.argsort(-severity_scores)
+top5 = sorted_indices[:5]
+
+print(ids[top5])
+print(ages[top5])
+print(severity_scores[top5])
